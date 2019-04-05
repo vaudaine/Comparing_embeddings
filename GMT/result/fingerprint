@@ -1,0 +1,26 @@
+#*** The properties of the matching ***
+#Date of the computation:	2018/11/22 03:31:44
+#Source graph set:	./data/Fingerprint/small.xml (2 graphs)
+#Target graph set:	./data/Fingerprint/small2.xml (2 graphs)
+#Graph edit distance procedure:	Beam
+#s = 5
+#Edge mode:		undirected
+#Cost for node deletion/insertion:	1.0
+#Cost for edge deletion/insertion:	1.0
+#Alpha weighting factor between node and edge costs:	0.5
+#No attributes for nodes defined
+#No attributes for edges defined
+#Individual node costs are added
+#Individual edge costs are added
+#(Combined node cost)^(1/1.0)
+#(Combined edge cost)^(1/1.0)
+#Complete Matching Time: 39
+#Number of Fails: 0
+#
+#*** The distance matrix ***
+# 	... data is printed in the following order ((s)ource,(t)arget):
+#		[d(s1,t1); d(s1,t2); d(s1,t3); ... d(s1,tn); d(s2,t1); d(s2,t2);...]
+0.00000
+5.00000
+4.00000
+0.00000

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE gxl SYSTEM "http://www.gupro.de/GXL/gxl-1.0.dtd">
+<gxl><graph id="three" edgeids="false" edgemode="undirected">
+  <node id="_11"></node>
+  <node id="_12"></node>
+  <node id="_13"></node>
+  <node id="_14"></node>
+  <node id="_15"></node>
+  <edge from="_11" to="_12"></edge>
+  <edge from="_12" to="_13"></edge>
+  <edge from="_13" to="_14"></edge>
+  <edge from="_14" to="_15"></edge>
+  <edge from="_12" to="_15"></edge>
+</graph></gxl>
