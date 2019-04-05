@@ -28,7 +28,8 @@ def neighbors_dissimilarity(adjacency_matrix, embedding, metric='euclidean'):
         
     For example, node '5' has three neighbors in G ['0','2','3']. 
     In the embedding, the three nearest nodes to '5' are ['0','1','3']
-    Fraction of nodes not in common = 1 - fraction of nodes in common = 1 - 2/3 = 1-3"""
+    Fraction of nodes not in common = 1 - fraction of nodes in common = 1 - 2/3 = 1-3
+    This is 1-value as compared with our paper."""
 
     dist = embedding_distance(embedding, metric)
     D = []
@@ -93,6 +94,7 @@ def structural_equivalence(adjacency_matrix, embedding, metric='euclidean'):
     
 
 def isomorphic_equivalence(embedding, isom_distances, list_of_sampled_nodes, metric='euclidean'):
+    """This value is -value as compared to the paper """
     N = len(list_of_sampled_nodes)
     less_embedding = []
     for w in list_of_sampled_nodes:
@@ -108,7 +110,7 @@ def isomorphic_equivalence(embedding, isom_distances, list_of_sampled_nodes, met
     print('isom equivalence computed')
     #return spearmanr(isom_distances_list, embedding_distances) #return the correlation coefficient
     return pearsonr(isom_distances_list, embedding_distances)
-
+    
 
 
 
@@ -381,7 +383,7 @@ def write_gmt_prop(G, filename):
         myfile.write("target=./graph_matching_inputs/" + G.name + ".xml\n")
         myfile.write("path=./graph_matching_inputs/\n")
         myfile.write("result=./graph_matching_outputs/results_" + G.name + ".txt\n")
-        string = "matching=Beam\ns=100\nadj=best\nnode=1.0\nedge=1.0\nnumOfNodeAttr=0\nnodeAttr0=\nnodeCostType0=\nnodeAttr0Importance=\nmultiplyNodeCosts=0\npNode=1\nundirected=1\nnumOfEdgeAttr=0\nedgeAttr0=\nedgeCostType0=\nedgeAttr0Importance=\nmultiplyEdgeCosts=0\npEdge=1\nalpha=0.5\noutputGraphs=0\noutputEditpath=0\noutputCostMatrix=0\noutputMatching=0\nsimKernel=0"
+        string = "matching=Beam\ns=100\nadj=best\nnode=1.0\nedge=1.0\nnumOfNodeAttr=0\nnodeAttr0=\nnodeCostType0=\nnodeAttr0Importance=\nmultiplyNodeCosts=0\npNode=1\nundirected=1\nnumOfEdgeAttr=0\nedgeAttr0=\nedgeCostType0=\nedgeAttr0Importance=\nmultiplyEdgeCosts=0\npEdge=1\nalpha=0.5\noutputGraphs=0\noutputEditpath=0\noutputCostMatrix=0\noutputMatching=0\nsimKernel=4"
         myfile.write(string)
 
 

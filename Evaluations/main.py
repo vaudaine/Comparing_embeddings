@@ -1,85 +1,85 @@
 import matplotlib.pyplot as plt
-from evaluation import functions as fct
+from src import functions as fct
 import time
 import networkx as nx
 from scipy.spatial.distance import cdist, jaccard
 import numpy as np
 import os
 import csv
-from sdne import SDNE
+from sdne.sdne import SDNE
 
 timo = time.time()
 
 #import graphs. Format is edgelist. Graphs are undirected and unweighted.
 graphs = []
 
-edgefile = './gem/data/karate.edgelist'
+edgefile = './src/data/karate.edgelist'
 G = fct.read_edgelist(edgefile)
 G = fct.load_graph(G, edgefile, 'ZKC')
 graphs.append(G)
 
-#G = nx.generators.gnp_random_graph(100, 0.1, seed=42, directed=False)
-#edgefile = "Gnp100.edgelist"
-#G = fct.load_graph(G, edgefile, 'Gnp100')
-#graphs.append(G)
+G = nx.generators.gnp_random_graph(100, 0.1, seed=42, directed=False)
+edgefile = "Gnp100.edgelist"
+G = fct.load_graph(G, edgefile, 'Gnp100')
+graphs.append(G)
 
-#G = nx.generators.barabasi_albert_graph(100, 10, seed=42)
-#edgefile = "BA100.edgelist"
-#G = fct.load_graph(G, edgefile, 'BA100')
-#graphs.append(G)
+G = nx.generators.barabasi_albert_graph(100, 10, seed=42)
+edgefile = "BA100.edgelist"
+G = fct.load_graph(G, edgefile, 'BA100')
+graphs.append(G)
 
-#edgefile = './gem/data/dancer100.edgeList'
-#G = fct.read_edgelist(edgefile)
-#G = fct.load_graph(G, edgefile, 'Dancer_100')
-#graphs.append(G)
+edgefile = './src/data/dancer100.edgeList'
+G = fct.read_edgelist(edgefile)
+G = fct.load_graph(G, edgefile, 'Dancer_100')
+graphs.append(G)
 
-#edgefile = './gem/data/dancer1000.edgeList'
-#G = fct.read_edgelist(edgefile)
-#G = fct.load_graph(G, edgefile, 'Dancer_1k')
-#graphs.append(G)
+edgefile = './src/data/dancer1000.edgeList'
+G = fct.read_edgelist(edgefile)
+G = fct.load_graph(G, edgefile, 'Dancer_1k')
+graphs.append(G)
 
-#edgefile = './gem/data/email.edgelist'
-#G = fct.read_edgelist(edgefile)
-#G = fct.load_graph(G, edgefile, 'email')
-#mapping = {}
-#for i in range(G.number_of_nodes()):
-#    mapping[i+1] = i
-#G = nx.relabel_nodes(G, mapping)
-#graphs.append(G)
+edgefile = './src/data/email.edgelist'
+G = fct.read_edgelist(edgefile)
+G = fct.load_graph(G, edgefile, 'email')
+mapping = {}
+for i in range(G.number_of_nodes()):
+    mapping[i+1] = i
+G = nx.relabel_nodes(G, mapping)
+graphs.append(G)
 
-#edgefile = "Gnp1000.edgelist"
-#G = nx.generators.gnp_random_graph(1000, 0.01, seed=42, directed=False)
-#G = fct.load_graph(G, edgefile, 'Gnp1000')
-#graphs.append(G)
+edgefile = "Gnp1000.edgelist"
+G = nx.generators.gnp_random_graph(1000, 0.01, seed=42, directed=False)
+G = fct.load_graph(G, edgefile, 'Gnp1000')
+graphs.append(G)
 
-#G = nx.generators.barabasi_albert_graph(1000, 10, seed=42)
-#edgefile = "BA1000.edgelist"
-#G = fct.load_graph(G, edgefile, 'BA1000')
-#graphs.append(G)
+G = nx.generators.barabasi_albert_graph(1000, 10, seed=42)
+edgefile = "BA1000.edgelist"
+G = fct.load_graph(G, edgefile, 'BA1000')
+graphs.append(G)
 
-#G = nx.generators.gnp_random_graph(10000, 0.001, seed=42, directed=False)
-#edgefile = "Gnp10000.edgelist"
-#G = fct.load_graph(G, edgefile, 'Gnp10000')
-#graphs.append(G)
+G = nx.generators.gnp_random_graph(10000, 0.001, seed=42, directed=False)
+edgefile = "Gnp10000.edgelist"
+G = fct.load_graph(G, edgefile, 'Gnp10000')
+graphs.append(G)
 
-#edgefile = './gem/data/toto_0.edgeList'
-#G = fct.read_edgelist(edgefile)
-#G = fct.load_graph(G, edgefile, 'Dancer_10k')
-#graphs.append(G)
+edgefile = './src/data/toto_0.edgeList'
+G = fct.read_edgelist(edgefile)
+G = fct.load_graph(G, edgefile, 'Dancer_10k')
+graphs.append(G)
 
-#edgefile = './gem/data/PGP.edgelist'
-#G = fct.read_edgelist(edgefile)
-#G = fct.load_graph(G, edgefile, 'PGP')
-#mapping = {}
-#for i in range(G.number_of_nodes()):
-#    mapping[i+1] = i
-#G = nx.relabel_nodes(G, mapping)
-#graphs.append(G)
+edgefile = './src/data/PGP.edgelist'
+G = fct.read_edgelist(edgefile)
+G = fct.load_graph(G, edgefile, 'PGP')
+mapping = {}
+for i in range(G.number_of_nodes()):
+    mapping[i+1] = i
+G = nx.relabel_nodes(G, mapping)
+graphs.append(G)
 
-#G = nx.generators.barabasi_albert_graph(10000, 10, seed=42)
-#edgefile = "BA10k.edgelist"
-#G = fct.load_graph(G, edgefile, 'BA10k')
-#graphs.append(G)
+G = nx.generators.barabasi_albert_graph(10000, 10, seed=42)
+edgefile = "BA10k.edgelist"
+G = fct.load_graph(G, edgefile, 'BA10k')
+graphs.append(G)
 
 
 for G in graphs:
